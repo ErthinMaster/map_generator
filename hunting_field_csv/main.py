@@ -40,6 +40,7 @@ def _rec_generate_platform(platform, current_pos, index_offset, current_prob, de
 def check_pos_around(platform, pos, new_pos, index_offset):
     shape = platform.shape
     for index in index_offset:
+        
         x = pos[1]+index[1]
         y = pos[0]+index[0]
         if x < 0 or x >= shape[1]: continue
@@ -51,12 +52,12 @@ if __name__ == '__main__':
     index_offset_1 = [
         (-1,-1), (-1, 0), (-1, 1),
         (0,-1),  (0,1),
-        (1,-1),  (1,0),   (1,1),
+        (1,-1),  (1,0),   (1,1)
     ]
     index_offset_2 = [
                     (-1,0),    
         (0,-1),                 (0,1),
-                    (1,0),
+                    (1,0)
     ]
     index_offset_3 = [
         (-2,-1),    
@@ -65,9 +66,31 @@ if __name__ == '__main__':
                     (1,0),      (1,1),
                                 (2,1),      (2,2)
     ]
+    index_offset_4 = [
+        (-1,-1),   (-1, 1),
+        (0,-1),    (0,1),
+        (1,-1),    (1,1)
+    ]
+
+    index_offset_5 = [
+                    (-1,-1),   (-1, 1),      (-1, 2),
+            
+        (1,-2),      (1,-1),    (1,1)
+    ]
+
+    index_offset_6 = [
+                    (-2,0),
+        (-1,-1),    (-1,0),
+        (0,-1),                 (0,1),
+                    (1,0),      (1,1),      (1,2)
+    ]
+
     t = dt.now()            
     day = f'{t.strftime("%Y_%m_%d")}_{t.strftime("%H%M%S")}'
-    size = (8,8)
-    generate_platform(f"Ours_{day}", size, 3, index_offset_1, dec_prob=15)
-    generate_platform(f"Lapin_{day}", size, 6, index_offset_2, current_prob=64, dec_prob=16)
-    generate_platform(f"Cerf_{day}", size, 2, index_offset_3, current_prob=82, dec_prob=8)
+    size = (9,9)
+    # generate_platform(f"Lapin_{day}",   size, 1, index_offset_1, current_pos=[(4,4)], current_prob=90, dec_prob=15)
+    # generate_platform(f"Bouc_{day}",    size, 1, index_offset_2, current_pos=[(4,4)], current_prob=64, dec_prob=16)
+    # generate_platform(f"Renard_{day}",  size, 1, index_offset_3, current_pos=[(4,4)], current_prob=82, dec_prob=8)
+    # generate_platform(f"Sanglier_{day}",size, 1, index_offset_4, current_pos=[(4,4)], current_prob=76, dec_prob=12)
+    generate_platform(f"Cerf_{day}",    size, 1, index_offset_5, current_pos=[(4,4)], current_prob=90, dec_prob=20)
+    # generate_platform(f"Ours_{day}",    size, 1, index_offset_6, current_pos=[(4,4)], current_prob=100,dec_prob=25)

@@ -12,7 +12,7 @@ def generate_platform_string(platform, size):
     platform_string += ",".join([abc[i] for i in range(0, size[1])])
     platform_string += "\n"
     for i in range(0, size[0]):
-        platform_string += f"{abc[i]},"
+        platform_string += f"{i},"
         platform_string += ",".join([f"{platform[i,j]}" for j in range(0, size[1])])    
         platform_string += "\n"
     
@@ -87,10 +87,17 @@ if __name__ == '__main__':
 
     t = dt.now()            
     day = f'{t.strftime("%Y_%m_%d")}_{t.strftime("%H%M%S")}'
-    size = (9,9)
+    size = (8,8)
     # generate_platform(f"Lapin_{day}",   size, 1, index_offset_1, current_pos=[(4,4)], current_prob=90, dec_prob=15)
     # generate_platform(f"Bouc_{day}",    size, 1, index_offset_2, current_pos=[(4,4)], current_prob=64, dec_prob=16)
     # generate_platform(f"Renard_{day}",  size, 1, index_offset_3, current_pos=[(4,4)], current_prob=82, dec_prob=8)
     # generate_platform(f"Sanglier_{day}",size, 1, index_offset_4, current_pos=[(4,4)], current_prob=76, dec_prob=12)
-    generate_platform(f"Cerf_{day}",    size, 1, index_offset_5, current_pos=[(4,4)], current_prob=90, dec_prob=20)
+    # generate_platform(f"Cerf_{day}",    size, 1, index_offset_5, current_pos=[(4,4)], current_prob=90, dec_prob=20)
     # generate_platform(f"Ours_{day}",    size, 1, index_offset_6, current_pos=[(4,4)], current_prob=100,dec_prob=25)
+    generate_platform(f"Lapin_{day}",   size, 5, index_offset_1, current_prob=90, dec_prob=15)
+    generate_platform(f"Bouc_{day}",    size, 4, index_offset_2, current_prob=64, dec_prob=16)
+    generate_platform(f"Renard_{day}",  size, 3, index_offset_3, current_prob=82, dec_prob=8)
+    size = (10,16)
+    generate_platform(f"Sanglier_{day}",size, 8, index_offset_4, current_prob=76, dec_prob=12)
+    generate_platform(f"Cerf_{day}",    size, 6, index_offset_5, current_prob=90, dec_prob=20)
+    generate_platform(f"Ours_{day}",    size, 5, index_offset_6, current_prob=100,dec_prob=25)
